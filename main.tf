@@ -241,7 +241,7 @@ resource "aws_instance" "web1" {
   key_name                    = "My-3-Tier-Key-Pair"
   availability_zone           = "us-east-1a"
   vpc_security_group_ids      = [aws_security_group.public_sg.id]
-  subnet_id                   = aws.subnet.publicsub1
+  subnet_id                   = aws_subnet.publicsub_1.id
   associate_public_ip_address = true
   user_data                   = <<-EOF
         #!/bin/bash
@@ -262,7 +262,7 @@ resource "aws_instance" "web2" {
   key_name                    = "My-3-Tier-Key-Pair"
   availability_zone           = "us-east-1b"
   vpc_security_group_ids      = [aws_security_group.public_sg.id]
-  subnet_id                   = aws_subnet.publicsub2
+  subnet_id                   = aws_subnet.publicsub_2.id
   associate_public_ip_address = true
   user_data                   = <<-EOF
         #!/bin/bash
