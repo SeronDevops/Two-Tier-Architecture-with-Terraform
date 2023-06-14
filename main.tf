@@ -11,8 +11,8 @@ terraform {
 
 provider "aws" {
     region = "us-east-1"
-    access_key = ""
-    secret_key = ""
+    access_key = "AKIAVROCNWHWTIAU66BP"
+    secret_key = "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"
 }
 
 # VPC BLOCK
@@ -235,10 +235,10 @@ resource "aws_lb_listener" "listener_lb" {
 # INSTANCE BLOCK
 
 #Create the EC2 Instances
-resource "aws_instance" "web1" {
-  ami                         = "ami-0889a44b331db0194"
+resource "aws_instance"  "web1"{
+  ami                         = "ami-0715c1897453cabd1"
   instance_type               = "t2.micro"
-  key_name                    = "My-3-Tier-Key-Pair"
+  key_name                    = "2Tier"
   availability_zone           = "us-east-1a"
   vpc_security_group_ids      = [aws_security_group.public_sg.id]
   subnet_id                   = aws_subnet.publicsub_1.id
@@ -256,10 +256,10 @@ resource "aws_instance" "web1" {
     Name = "web1_instance"
   }
 }
-resource "aws_instance" "web2" {
-  ami                         = "ami-0889a44b331db0194"
+resource "aws_instance" "web2"{
+  ami                         = "ami-0715c1897453cabd1"
   instance_type               = "t2.micro"
-  key_name                    = "My-3-Tier-Key-Pair"
+  key_name                    = "2Tier"
   availability_zone           = "us-east-1b"
   vpc_security_group_ids      = [aws_security_group.public_sg.id]
   subnet_id                   = aws_subnet.publicsub_2.id
