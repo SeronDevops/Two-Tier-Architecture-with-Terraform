@@ -11,8 +11,8 @@ terraform {
 
 provider "aws" {
     region = "us-east-1"
-    access_key = "AKIAVROCNWHWTIAU66BP"
-    secret_key = "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"
+    access_key = ""
+    secret_key = ""
 }
 
 # VPC BLOCK
